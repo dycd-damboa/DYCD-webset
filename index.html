@@ -227,3 +227,45 @@ th{background:#0f4c75;color:white}
 tr:hover{background:#f0f6ff}
 </style>
 </head>
+const scriptURL = 'PASTE_YOUR_GOOGLE_SCRIPT_EXEC_URL_HERE';
+const adminWhatsApp = '2347085726695';
+
+document.getElementById('dycdForm').addEventListener('submit', e => {
+  e.preventDefault();
+  
+  const data = {
+    fullName: document.getElementById('fullName').value,
+    phone: document.getElementById('phone').value,
+    ward: document.getElementById('ward').value,
+    age: document.getElementById('age').value,
+    occupation: document.getElementById('occupation').value,
+    reason: document.getElementById('reason').value
+  };
+
+  // Show loading
+  document.querySelector('button[type="submit"]').innerText = "Submitting...";
+
+  fetch(scriptURL, { method: 'POST', body: JSON.stringify(data) })
+  .then(res => {
+    // 1. Save to Google Sheet DONE
+    // 2. Now send to YOUR WhatsApp
+    let msg = `*NEW DYCD REGISTRATION*%0A%0A` +
+              `*Name:* ${data.fullName}%0A` +
+              `*Phone:* ${data.phone}%0A` +
+              `*Ward:* ${data.ward}%0A` +
+              `*Occupation:* ${data.occupation}%0A` +
+              `*Reason:* ${data.reason}`;
+
+    // Open WhatsApp to you
+    window.open(`https://wa.me/${adminWhatsApp}?text=${msg}`, '_blank');
+    
+    // Show thank you
+    alert("Thank you! Registration received. Check your Google Sheet.");
+    document.getElementById('dycdForm').reset();
+    document.querySelector('button[type="submit"]').innerText = "Submit Registration";
+  })
+  .catch(err => {
+    alert("Error! Check your Google Script URL");
+    document.querySelector('button[type="submit"]').innerText = "Submit Registration";
+  });
+});
