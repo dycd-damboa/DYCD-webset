@@ -203,3 +203,53 @@ document.getElementById('dycdForm').addEventListener('submit', function(e){
 </script>
 </body>
 </html>
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DYCD Admin</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f0f6ff;color:#1f2937;padding:20px;margin:0}
+.box{background:white;padding:25px;border-radius:16px;max-width:900px;margin:auto;box-shadow:0 8px 30px rgba(15,76,117,0.12);border-top:6px solid #0f4c75}
+h1{color:#0f4c75;text-align:center;margin-bottom:5px}
+.sub{text-align:center;color:#6b7280;font-size:14px}
+.stat{display:flex;justify-content:center;margin:20px 0}
+.card{background:#0f4c75;color:white;padding:18px 40px;border-radius:12px;text-align:center}
+.card b{font-size:32px;display:block}
+input{width:100%;padding:14px;border-radius:10px;border:1.5px solid #0f4c75;margin-bottom:20px;box-sizing:border-box}
+table{width:100%;border-collapse:collapse;background:white;border-radius:10px;overflow:hidden}
+th,td{padding:12px;border-bottom:1px solid #e5e7eb;text-align:left;font-size:14px}
+th{background:#0f4c75;color:white}
+tr:hover{background:#f0f6ff}
+</style>
+</head>
+<body>
+<div class="box">
+<h1>DYCD Admin Dashboard</h1>
+<p class="sub">Blue & White Official System</p>
+<div class="stat"><div class="card"><b id="total">0</b>Total Members</div></div>
+<input type="text" id="search" placeholder="Search name, ward, or phone...">
+<table>
+<thead><tr><th>Name</th><th>Phone</th><th>Ward</th><th>Reason</th></tr></thead>
+<tbody id="tbody"><tr><td colspan="4" style="text-align:center">Loading...</td></tr></tbody>
+</table>
+</div>
+<script>
+const SCRIPT_URL = 'PASTE_YOUR_GOOGLE_SCRIPT_URL_HERE';
+fetch(SCRIPT_URL).then(r=>r.json()).then(data=>{
+  document.getElementById('total').innerText = data.length;
+  const tbody = document.getElementById('tbody');
+  function render(list){
+    tbody.innerHTML = list.map(d=>`<tr><td>${d.name||''}</td><td>${d.phone||''}</td><td>${d.ward||''}</td><td>${d.reason||''}</td></tr>`).join('');
+  }
+  render(data.reverse());
+  document.getElementById('search').addEventListener('input', e=>{
+    const q = e.target.value.toLowerCase();
+    render(data.filter(x => (x.name+x.phone+x.ward).toLowerCase().includes(q)));
+  });
+});
+  
