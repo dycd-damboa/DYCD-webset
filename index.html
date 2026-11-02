@@ -132,4 +132,74 @@ document.getElementById('dycdForm').addEventListener('submit', function(e){
 });
 </script>
 </body>
+</html><!-- DYCD - Save to Google Sheet -->
+<script>
+  // 1. Paste your Google Sheet URL here
+  const scriptURL = 'PASTE_YOUR_URL_HERE';
+
+  // 2. Handle form submit
+  document.getElementById('dycdForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Get form data
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData);
+
+    // Send to Google Sheet
+    fetch(scriptURL, {
+      method: 'POST',
+      body: JSON.stringify(data),
+      mode: 'no-cors'
+    })
+    .then(function() {
+      // Show thank you message
+      document.getElementById('success').style.display = 'block';
+      
+      // Clear form
+      e.target.reset();
+      
+      // Scroll to top
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
+</body>
+</html><!-- DYCD - Save to Google Sheet -->
+<script>
+  // 1. Paste your Google Sheet URL here
+  const scriptURL = 'PASTE_YOUR_URL_HERE';
+
+  // 2. Handle form submit
+  document.getElementById('dycdForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Get form data
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData);
+
+    // Send to Google Sheet
+    fetch(scriptURL, {
+      method: 'POST',
+      body: JSON.stringify(data),
+      mode: 'no-cors'
+    })
+    .then(function() {
+      // Show thank you message
+      document.getElementById('success').style.display = 'block';
+      
+      // Clear form
+      e.target.reset();
+      
+      // Scroll to top
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
+</body>
 </html>
