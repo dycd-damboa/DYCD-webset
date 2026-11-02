@@ -124,4 +124,12 @@ input, select, textarea { width: 100%; padding: 13px 15px; border: 1.5px solid #
 </div>
 
 <script>
-document.getElementById('dycdForm').addEventListener('submit
+document.getElementById('dycdForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  document.getElementById('success').style.display='block';
+  this.reset();
+  window.scrollTo({top:0, behavior:'smooth'});
+});
+</script>
+</body>
+</html>
