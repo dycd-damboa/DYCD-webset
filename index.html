@@ -881,3 +881,6 @@ form.addEventListener("submit", function(event) {
 
 </body>
 </html>
+ALTER TABLE public.members ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Allow member registration"
+ON public.members FOR INSERT TO anon WITH CHECK (true);
