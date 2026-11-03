@@ -134,3 +134,86 @@ form.addEventListener("submit", async function(event){
 
   document.getElementById("success").style.display = "block";
   document.getElementById("registrationSl
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+// ===== REPLACE WITH YOUR REAL VALUES =====
+const SUPABASE_URL = 'https://YOUR_PROJECT.supabase.co';
+const SUPABASE_ANON_KEY = 'YOUR_ANON_KEY_HERE';
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+const form = document.getElementById("dycdForm");
+form.addEventListener("submit", async function(e){
+  e.preventDefault();
+  const btn = form.querySelector('button[type=submit]');
+  btn.innerText = 'Submitting...';
+  btn.disabled = true;
+
+  const today = new Date();
+  const regNum = "DYCD-" + today.getFullYear() + "-" + Math.floor(100000 + Math.random()*900000);
+
+  const memberData = {
+    full_name: document.getElementById("fullName").value.trim(),
+    phone: document.getElementById("phone").value.trim(),
+    email: document.getElementById("email").value.trim(),
+    gender: document.getElementById("gender").value,
+    age: parseInt(document.getElementById("age").value),
+    ward: document.getElementById("ward").value,
+    lga: document.getElementById("lga").value,
+    state: document.getElementById("state").value,
+    skill: document.getElementById("skill").value,
+    business: document.getElementById("business").value,
+    why_join: document.getElementById("reason").value,
+    reg_number: regNum,
+    created_at: new Date().toISOString()
+  };
+
+  // 1. Save to Supabase members table
+  const { error } = await supabaseClient.from('members').insert([memberData]);
+
+  if(error){
+    alert("❌ Failed: " + error.message + "\n\nCheck: 1) Supabase URL/Key 2) RLS Policy you created");
+    btn.innerText = 'Submit Registration';
+    btn.disabled = false;
+    return;
+  }
+
+  // 2. Show Registration Successfully
+  const successDiv = document.getElementById("success");
+  successDiv.innerHTML = `✅ <strong>Registration Successful!</strong><br>Welcome ${memberData.full_name} - Your Number is ${regNum}`;
+  successDiv.style.display = "block";
+
+  // 3. Fill Registration Slip with Data
+  document.getElementById("slipNumber").textContent = regNum;
+  document.getElementById("slipName").textContent = memberData.full_name;
+  document.getElementById("slipPhone").textContent = memberData.phone;
+  document.getElementById("slipEmail").textContent = memberData.email || "Not provided";
+  document.getElementById("slipGender").textContent = memberData.gender + " / " + memberData.age + " years";
+  document.getElementById("slipWard").textContent = memberData.ward;
+  document.getElementById("slipLga").textContent = memberData.lga + " / " + memberData.state;
+  document.getElementById("slipSkill").textContent = memberData.skill + (memberData.business ? " - " + memberData.business : "");
+  document.getElementById("slipDate").textContent = today.toLocaleString();
+
+  // 4. Show Slip and Scroll
+  const slip = document.getElementById("registrationSlip");
+  slip.style.display = "block";
+  slip.scrollIntoView({behavior: "smooth"});
+
+  // 5. WhatsApp Alert to 07085726695
+  const whatsappMsg = `*NEW DYCD REGISTRATION*%0A%0AReg No: ${regNum}%0AName: ${memberData.full_name}%0APhone: ${memberData.phone}%0AGender: ${memberData.gender}%0AAge: ${memberData.age}%0AWard: ${memberData.ward}%0ALGA: ${memberData.lga}%0ASkill: ${memberData.skill}%0ABusiness: ${memberData.business}%0AReason: ${memberData.why_join}`;
+  window.open(`https://wa.me/2347085726695?text=${whatsappMsg}`, '_blank');
+
+  // 6. Auto Print Dialog (optional - user can click print button too)
+  setTimeout(() => {
+    if(confirm("Registration Successful! Do you want to Print your slip now?")){
+      window.print();
+    }
+  }, 800);
+
+  // Reset form
+  form.reset();
+  document.getElementById("lga").value = "Damboa";
+  document.getElementById("state").value = "Borno State";
+  btn.innerText = 'Submit Registration';
+  btn.disabled = false;
+});
+</script>
