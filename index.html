@@ -1,886 +1,136 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>DYCD | Damboa Youth Capacity Development</title>
-
 <style>
-/* ===== GENERAL DESIGN ===== */
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: 'Segoe UI', Arial, sans-serif;
-  color: #1f2937;
-  background: #f4f8ff;
-  line-height: 1.6;
-}
-
-/* ===== HEADER ===== */
-
-.header {
-  background: linear-gradient(135deg, #0f4c75, #1b6ca8);
-  color: white;
-  padding: 30px 20px;
-  text-align: center;
-}
-
-.header h1 {
-  font-size: 36px;
-  letter-spacing: 3px;
-}
-
-.header p {
-  opacity: 0.95;
-  margin-top: 5px;
-}
-
-/* ===== NAVIGATION ===== */
-
-.nav {
-  background: #083b5c;
-  padding: 12px;
-  text-align: center;
-}
-
-.nav a {
-  color: white;
-  text-decoration: none;
-  margin: 0 12px;
-  font-weight: 600;
-}
-
-/* ===== MAIN CONTAINER ===== */
-
-.container {
-  max-width: 700px;
-  margin: 30px auto;
-  padding: 0 15px;
-}
-
-.card {
-  background: white;
-  border-radius: 16px;
-  padding: 25px;
-  box-shadow: 0 8px 30px rgba(15, 76, 117, 0.12);
-  margin-bottom: 25px;
-}
-
-.card h2 {
-  color: #0f4c75;
-  margin-bottom: 10px;
-  text-align: center;
-}
-
-.subtitle {
-  text-align: center;
-  color: #6b7280;
-  margin-bottom: 25px;
-  font-size: 14px;
-}
-
-/* ===== FORM ===== */
-
-.form-group {
-  margin-bottom: 18px;
-}
-
-label {
-  display: block;
-  font-weight: 600;
-  margin-bottom: 6px;
-  font-size: 14px;
-}
-
-.required {
-  color: #dc2626;
-}
-
-input,
-select,
-textarea {
-  width: 100%;
-  padding: 13px 15px;
-  border: 1.5px solid #d1d5db;
-  border-radius: 10px;
-  font-size: 15px;
-  font-family: inherit;
-  background: white;
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-  outline: none;
-  border-color: #1b6ca8;
-  box-shadow: 0 0 0 3px rgba(27, 108, 168, 0.12);
-}
-
-textarea {
-  resize: vertical;
-}
-
-/* ===== BUTTONS ===== */
-
-.btn {
-  width: 100%;
-  background: #0f4c75;
-  color: white;
-  padding: 15px;
-  border: none;
-  border-radius: 10px;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-.btn:hover {
-  background: #1b6ca8;
-}
-
-.btn-secondary {
-  background: #15803d;
-}
-
-.btn-secondary:hover {
-  background: #166534;
-}
-
-/* ===== SUCCESS MESSAGE ===== */
-
-.success-msg {
-  display: none;
-  background: #dcfce7;
-  color: #166534;
-  padding: 15px;
-  border-radius: 10px;
-  text-align: center;
-  margin-bottom: 20px;
-  font-weight: 600;
-}
-
-/* ===== REGISTRATION SLIP ===== */
-
-#registrationSlip {
-  display: none;
-  background: white;
-  border: 2px solid #0f4c75;
-  border-radius: 12px;
-  padding: 25px;
-  margin-top: 25px;
-}
-
-.slip-header {
-  text-align: center;
-  color: #0f4c75;
-  border-bottom: 2px solid #0f4c75;
-  padding-bottom: 15px;
-  margin-bottom: 20px;
-}
-
-.slip-header h1 {
-  font-size: 32px;
-  letter-spacing: 3px;
-}
-
-.slip-header h3 {
-  font-size: 15px;
-}
-
-.slip-header p {
-  font-size: 12px;
-  color: #555;
-}
-
-.slip-title {
-  text-align: center;
-  margin: 20px 0;
-  color: #0f4c75;
-}
-
-.slip-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 15px;
-  border-bottom: 1px solid #ddd;
-  padding: 10px 0;
-  font-size: 14px;
-}
-
-.slip-row strong {
-  color: #0f4c75;
-}
-
-.slip-footer {
-  text-align: center;
-  margin-top: 25px;
-  font-size: 13px;
-}
-
-.slip-buttons {
-  margin-top: 20px;
-}
-
-/* ===== CONTACT ===== */
-
-.contact-card {
-  background: linear-gradient(135deg, #0f4c75, #1b6ca8);
-  color: white;
-  border-radius: 16px;
-  padding: 25px;
-  text-align: center;
-}
-
-.contact-card h3 {
-  margin-bottom: 10px;
-  font-size: 20px;
-}
-
-/* ===== FOOTER ===== */
-
-.footer {
-  background: #083b5c;
-  color: white;
-  text-align: center;
-  padding: 25px 15px;
-  font-size: 13px;
-  margin-top: 30px;
-}
-
-/* ===== MOBILE RESPONSIVE ===== */
-
-@media (max-width: 600px) {
-
-  .header h1 {
-    font-size: 30px;
-  }
-
-  .card {
-    padding: 20px;
-  }
-
-  .nav a {
-    margin: 0 7px;
-    font-size: 13px;
-  }
-
-  .slip-row {
-    font-size: 12px;
-  }
-
-}
-
-/* ===== PRINT SETTINGS ===== */
-
-@media print {
-
-  body {
-    background: white;
-  }
-
-  body * {
-    visibility: hidden;
-  }
-
-  #registrationSlip,
-  #registrationSlip * {
-    visibility: visible;
-  }
-
-  #registrationSlip {
-    display: block !important;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    margin: 0;
-    border: 2px solid black;
-    box-shadow: none;
-  }
-
-  .slip-buttons,
-  .no-print {
-    display: none !important;
-  }
-
-}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;color:#1f2937;background:#f4f8ff;line-height:1.6}
+.header{background:linear-gradient(135deg,#0f4c75,#1b6ca8);color:white;padding:30px 20px;text-align:center}
+.header h1{font-size:36px;letter-spacing:3px}
+.nav{background:#083b5c;padding:12px;text-align:center}
+.nav a{color:white;text-decoration:none;margin:0 12px;font-weight:600}
+.container{max-width:700px;margin:30px auto;padding:0 15px}
+.card{background:white;border-radius:16px;padding:25px;box-shadow:0 8px 30px rgba(15,76,117,0.12);margin-bottom:25px}
+.card h2{color:#0f4c75;margin-bottom:10px;text-align:center}
+.subtitle{text-align:center;color:#6b7280;margin-bottom:25px;font-size:14px}
+.form-group{margin-bottom:18px}
+label{display:block;font-weight:600;margin-bottom:6px;font-size:14px}
+.required{color:#dc2626}
+input,select,textarea{width:100%;padding:13px 15px;border:1.5px solid #d1d5db;border-radius:10px;font-size:15px;font-family:inherit;background:white}
+input:focus,select:focus,textarea:focus{outline:none;border-color:#1b6ca8;box-shadow:0 0 0 3px rgba(27,108,168,0.12)}
+.btn{width:100%;background:#0f4c75;color:white;padding:15px;border:none;border-radius:10px;font-size:16px;font-weight:bold;cursor:pointer;margin-top:10px}
+.btn:hover{background:#1b6ca8}
+.btn-secondary{background:#15803d}
+.success-msg{display:none;background:#dcfce7;color:#166534;padding:15px;border-radius:10px;text-align:center;margin-bottom:20px;font-weight:600}
+#registrationSlip{display:none;background:white;border:2px solid #0f4c75;border-radius:12px;padding:25px;margin-top:25px}
+.slip-header{text-align:center;color:#0f4c75;border-bottom:2px solid #0f4c75;padding-bottom:15px;margin-bottom:20px}
+.slip-row{display:flex;justify-content:space-between;gap:15px;border-bottom:1px solid #ddd;padding:10px 0;font-size:14px}
+.slip-row strong{color:#0f4c75}
+.slip-footer{text-align:center;margin-top:25px;font-size:13px}
+.contact-card{background:linear-gradient(135deg,#0f4c75,#1b6ca8);color:white;border-radius:16px;padding:25px;text-align:center}
+.footer{background:#083b5c;color:white;text-align:center;padding:25px 15px;font-size:13px;margin-top:30px}
+@media print{body{background:white}body *{visibility:hidden}#registrationSlip,#registrationSlip *{visibility:visible}#registrationSlip{display:block!important;position:absolute;left:0;top:0;width:100%;margin:0;border:2px solid black}.no-print{display:none!important}}
 </style>
 </head>
-
 <body>
-
-<!-- ===== DYCD HEADER ===== -->
-
-<header class="header">
-
-  <h1>DYCD</h1>
-
-  <p>Damboa Youth Capacity Development</p>
-
-  <p style="font-size:13px; margin-top:8px;">
-    Empowering Youth • Building Future • Serving Damboa
-  </p>
-
-</header>
-
-<!-- ===== NAVIGATION ===== -->
-
-<nav class="nav">
-
-  <a href="#home">Home</a>
-
-  <a href="#register">Register</a>
-
-  <a href="#about">About</a>
-
-  <a href="#contact">Contact</a>
-
-</nav>
-
-<!-- ===== MAIN CONTENT ===== -->
-
+<header class="header"><h1>DYCD</h1><p>Damboa Youth Capacity Development</p><p style="font-size:13px;margin-top:8px">Empowering Youth • Building Future • Serving Damboa</p></header>
+<nav class="nav"><a href="#home">Home</a><a href="#register">Register</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
 <main class="container" id="home">
-
-  <!-- WELCOME SECTION -->
-
-  <section class="card">
-
-    <h2>Welcome to DYCD</h2>
-
-    <p class="subtitle">
-      Damboa Youth Capacity Development
-    </p>
-
-    <p>
-      Welcome to the official DYCD membership registration
-      website. Join us to promote education, leadership,
-      youth participation, skills development and community
-      progress in Damboa.
-    </p>
-
-  </section>
-
-  <!-- REGISTRATION FORM -->
-
-  <section class="card" id="register">
-
-    <h2>Member Registration</h2>
-
-    <p class="subtitle">
-      Join us to develop skills, serve our community
-      and grow together.
-    </p>
-
-    <!-- SUCCESS MESSAGE -->
-
-    <div id="success" class="success-msg">
-
-      Registration completed successfully!
-
-      <br>
-
-      Your registration slip is ready below.
-
-    </div>
-
-    <form id="dycdForm">
-
-      <!-- FULL NAME -->
-
-      <div class="form-group">
-
-        <label for="fullName">
-          Full Name <span class="required">*</span>
-        </label>
-
-        <input
-          type="text"
-          id="fullName"
-          placeholder="Enter your full name"
-          required
-        >
-
-      </div>
-
-      <!-- PHONE -->
-
-      <div class="form-group">
-
-        <label for="phone">
-          Phone Number <span class="required">*</span>
-        </label>
-
-        <input
-          type="tel"
-          id="phone"
-          placeholder="e.g. 08012345678"
-          required
-        >
-
-      </div>
-
-      <!-- EMAIL -->
-
-      <div class="form-group">
-
-        <label for="email">
-          Email Address
-        </label>
-
-        <input
-          type="email"
-          id="email"
-          placeholder="Enter your email address"
-        >
-
-      </div>
-
-      <!-- GENDER -->
-
-      <div class="form-group">
-
-        <label for="gender">
-          Gender <span class="required">*</span>
-        </label>
-
-        <select id="gender" required>
-
-          <option value="">-- Select Gender --</option>
-
-          <option value="Male">Male</option>
-
-          <option value="Female">Female</option>
-
-        </select>
-
-      </div>
-
-      <!-- WARD / LOCATION -->
-
-      <div class="form-group">
-
-        <label for="ward">
-          Ward / Location in Damboa
-          <span class="required">*</span>
-        </label>
-
-        <select id="ward" required>
-
-          <option value="">-- Select Ward / Location --</option>
-
-          <option>Ajigin (A)</option>
-
-          <option>Ajigin (B)</option>
-
-          <option>Azur / Multe / Forfor</option>
-
-          <option>Bego / Yerwa / Ngurna</option>
-
-          <option>Damboa Central</option>
-
-          <option>Gumsuri / Misakurbudu</option>
-
-          <option>Kafa / Mafi</option>
-
-          <option>Mulgwai / Kopchi</option>
-
-          <option>Nguda / Wuyaram</option>
-
-          <option>Wawa / Korede</option>
-
-        </select>
-
-      </div>
-
-      <!-- LGA -->
-
-      <div class="form-group">
-
-        <label for="lga">
-          Local Government Area
-        </label>
-
-        <input
-          type="text"
-          id="lga"
-          value="Damboa"
-          readonly
-        >
-
-      <label>Your Skill / Business</label>
-<select id="occupation" name="occupation" required style="width:100%; padding:12px; border-radius:8px; border:1px solid #ccc;">
-  <option value="">-- Select Category --</option>
-  <option value="Student">🎓 Student</option>
-  <option value="Farmer">🌾 Farmer</option>
-  <option value="Business/Trader">💼 Business/Trader</option>
-  <option value="Welding">🔧 Welding & Fabrication</option>
-  <option value="Carpentry">🪵 Carpentry</option>
-  <option value="Tailoring">✂️ Tailoring</option>
-  <option value="Tech/Phone Repair">📱 Tech / Phone Repair</option>
-  <option value="Mechanic">🔧 Mechanic</option>
-  <option value="Driver">🚜 Driver</option>
-  <option value="Other">Other</option>
-</select>
-
-        </select>
-
-      </div>
-
-      <!-- OCCUPATION -->
-
-      <div class="form-group">
-
-        <label for="occupation">
-          Occupation
-        </label>
-
-        <input
-          type="text"
-          id="occupation"
-          placeholder="Enter your occupation"
-        >
-
-      </div>
-
-      <!-- REASON -->
-
-      <div class="form-group">
-
-        <label for="reason">
-          Why do you want to join DYCD?
-        </label>
-
-        <textarea
-          id="reason"
-          rows="4"
-          placeholder="Tell us why you want to join DYCD..."
-        ></textarea>
-
-      </div>
-
-      <!-- SUBMIT BUTTON -->
-
-      <button type="submit" class="btn">
-
-        Submit Registration
-
-      </button>
-
-    </form>
-
-  </section>
-
-  <!-- ===== REGISTRATION SLIP ===== -->
-
-  <section id="registrationSlip">
-
-    <div class="slip-header">
-
-      <h1>DYCD</h1>
-
-      <h3>DAMBOA YOUTH CAPACITY DEVELOPMENT</h3>
-
-      <p>
-        Empowering Youth • Building Future • Serving Damboa
-      </p>
-
-    </div>
-
-    <h2 class="slip-title">
-      MEMBERSHIP REGISTRATION SLIP
-    </h2>
-
-    <div class="slip-row">
-
-      <strong>Registration Number:</strong>
-
-      <span id="slipNumber"></span>
-
-    </div>
-
-    <div class="slip-row">
-
-      <strong>Full Name:</strong>
-
-      <span id="slipName"></span>
-
-    </div>
-
-    <div class="slip-row">
-
-      <strong>Phone Number:</strong>
-
-      <span id="slipPhone"></span>
-
-    </div>
-
-    <div class="slip-row">
-
-      <strong>Email Address:</strong>
-
-      <span id="slipEmail"></span>
-
-    </div>
-
-    <div class="slip-row">
-
-      <strong>Gender:</strong>
-
-      <span id="slipGender"></span>
-
-    </div>
-
-    <div class="slip-row">
-
-      <strong>Ward / Location:</strong>
-
-      <span id="slipWard"></span>
-
-    </div>
-
-    <div class="slip-row">
-
-      <strong>Local Government:</strong>
-
-      <span id="slipLga"></span>
-
-    </div>
-
-    <div class="slip-row">
-
-      <strong>Education:</strong>
-
-      <span id="slipEducation"></span>
-
-    </div>
-
-    <div class="slip-row">
-
-      <strong>Occupation:</strong>
-
-      <span id="slipOccupation"></span>
-
-    </div>
-
-    <div class="slip-row">
-
-      <strong>Registration Date:</strong>
-
-      <span id="slipDate"></span>
-
-    </div>
-
-    <div class="slip-footer">
-
-      <p>
-        Thank you for registering with DYCD.
-      </p>
-
-      <p>
-        Together we can build a better future for Damboa youth.
-      </p>
-
-      <br>
-
-      <strong>DYCD MANAGEMENT</strong>
-
-    </div>
-
-    <!-- PRINT BUTTON -->
-
-    <div class="slip-buttons">
-
-      <button
-        type="button"
-        class="btn btn-secondary"
-        onclick="window.print()"
-      >
-
-        Print Registration Slip / Save as PDF
-
-      </button>
-
-    </div>
-
-  </section>
-
-  <!-- ===== ABOUT DYCD ===== -->
-
-  <section class="card" id="about">
-
-    <h2>About DYCD</h2>
-
-    <p>
-      Damboa Youth Capacity Development (DYCD) is a
-      youth-focused organization committed to promoting
-      education, leadership, skills development,
-      participation and community development.
-    </p>
-
-    <br>
-
-    <h3 style="color:#0f4c75;">Our Vision</h3>
-
-    <p>
-      To build an empowered, educated and responsible
-      generation of Damboa youth.
-    </p>
-
-    <br>
-
-    <h3 style="color:#0f4c75;">Our Mission</h3>
-
-    <p>
-      To encourage youth participation, promote
-      opportunities and contribute to the development
-      of our community.
-    </p>
-
-  </section>
-
-  <!-- ===== CONTACT ===== -->
-
-  <section class="contact-card" id="contact">
-
-    <h3>Contact DYCD</h3>
-
-    <p>
-      For membership enquiries and further information,
-      please contact DYCD management.
-    </p>
-
-    <p style="margin-top:10px;">
-      Damboa, Borno State, Nigeria
-    </p>
-
-  </section>
-
+<section class="card"><h2>Welcome to DYCD</h2><p class="subtitle">Damboa Youth Capacity Development</p><p>Welcome to the official DYCD membership registration website. Join us to promote education, leadership, youth participation, skills development and community progress in Damboa.</p></section>
+
+<section class="card" id="register"><h2>Member Registration</h2><p class="subtitle">Join us to develop skills, serve our community and grow together.</p>
+<div id="success" class="success-msg">Registration completed successfully!<br>Your registration slip is ready below.</div>
+
+<form id="dycdForm">
+<div class="form-group"><label>Full Name <span class="required">*</span></label><input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required></div>
+<div class="form-group"><label>Phone Number <span class="required">*</span></label><input type="tel" id="phone" name="phone" placeholder="07085726695" required></div>
+<div class="form-group"><label>Email Address</label><input type="email" id="email" name="email" placeholder="Enter your email address"></div>
+<div class="form-group"><label>Gender <span class="required">*</span></label><select id="gender" name="gender" required><option value="">-- Select Gender --</option><option>Male</option><option>Female</option></select></div>
+<div class="form-group"><label>Age <span class="required">*</span></label><input type="number" id="age" name="age" placeholder="Enter your age" required></div>
+<div class="form-group"><label>Ward / Location in Damboa <span class="required">*</span></label><select id="ward" name="ward" required><option value="">-- Select Ward --</option><option>Ajigin (A)</option><option>Ajigin (B)</option><option>Azur / Multe / Forfor</option><option>Bego / Yerwa / Ngurna</option><option>Damboa Central</option><option>Gumsuri / Misakurbudu</option><option>Kafa / Mafi</option><option>Mulgwai / Kopchi</option><option>Nguda / Wuyaram</option><option>Wawa / Korede</option></select></div>
+<div class="form-group"><label>Local Government Area</label><input type="text" id="lga" name="lga" value="Damboa" readonly></div>
+<div class="form-group"><label>State</label><input type="text" id="state" name="state" value="Borno State" readonly></div>
+
+<!-- FIXED: Only ONE Skill/Business field now -->
+<div class="form-group"><label>Your Skill / Business <span class="required">*</span></label><select id="skill" name="skill" required><option value="">-- Select Category --</option><option>🎓 Student</option><option>🌾 Farmer</option><option>💼 Business/Trader</option><option>🔧 Welding & Fabrication</option><option>🪵 Carpentry</option><option>✂️ Tailoring</option><option>📱 Tech / Phone Repair</option><option>🔧 Mechanic</option><option>🚜 Driver</option><option>Other</option></select></div>
+
+<div class="form-group"><label>Business Name (if any)</label><input type="text" id="business" name="business" placeholder="Your business name"></div>
+<div class="form-group"><label>Why do you want to join DYCD?</label><textarea id="reason" name="reason" rows="4" placeholder="Tell us why you want to join DYCD..."></textarea></div>
+<button type="submit" class="btn">Submit Registration</button>
+</form>
+</section>
+
+<section id="registrationSlip"><div class="slip-header"><h1>DYCD</h1><h3>DAMBOA YOUTH CAPACITY DEVELOPMENT</h3><p>Empowering Youth • Building Future • Serving Damboa</p></div><h2 style="text-align:center;color:#0f4c75;margin:20px 0">MEMBERSHIP REGISTRATION SLIP</h2>
+<div class="slip-row"><strong>Registration Number:</strong><span id="slipNumber"></span></div>
+<div class="slip-row"><strong>Full Name:</strong><span id="slipName"></span></div>
+<div class="slip-row"><strong>Phone Number:</strong><span id="slipPhone"></span></div>
+<div class="slip-row"><strong>Email:</strong><span id="slipEmail"></span></div>
+<div class="slip-row"><strong>Gender / Age:</strong><span id="slipGender"></span></div>
+<div class="slip-row"><strong>Ward / Location:</strong><span id="slipWard"></span></div>
+<div class="slip-row"><strong>LGA / State:</strong><span id="slipLga"></span></div>
+<div class="slip-row"><strong>Skill / Business:</strong><span id="slipSkill"></span></div>
+<div class="slip-row"><strong>Registration Date:</strong><span id="slipDate"></span></div>
+<div class="slip-footer"><p>Thank you for registering with DYCD.</p><p>Together we can build a better future for Damboa youth.</p><br><strong>DYCD MANAGEMENT - 07085726695</strong></div>
+<div style="margin-top:20px" class="no-print"><button type="button" class="btn btn-secondary" onclick="window.print()">🖨️ Print Registration Slip / Save as PDF</button><a href="https://wa.me/2347085726695" style="display:block;text-align:center;margin-top:10px;background:#25D366;color:white;padding:12px;border-radius:10px;text-decoration:none;font-weight:700">💬 WhatsApp: 07085726695</a></div>
+</section>
+
+<section class="card" id="about"><h2>About DYCD</h2><p>Damboa Youth Capacity Development (DYCD) is a youth-focused organization committed to promoting education, leadership, skills development, participation and community development.</p></section>
+<section class="contact-card" id="contact"><h3>Contact DYCD</h3><p>For membership enquiries contact DYCD management.</p><p style="margin-top:10px">Damboa, Borno State, Nigeria - 07085726695</p></section>
 </main>
+<footer class="footer"><p>© 2026 DYCD - All Rights Reserved</p><p>Damboa Youth Capacity Development</p></footer>
 
-<!-- ===== FOOTER ===== -->
-
-<footer class="footer">
-
-  <p>
-    © 2026 DYCD - All Rights Reserved
-  </p>
-
-  <p>
-    Damboa Youth Capacity Development
-  </p>
-
-</footer>
-
-<!-- ===== JAVASCRIPT ===== -->
-
+<!-- SUPABASE + FIXED JAVASCRIPT -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
+const SUPABASE_URL = 'https://YOUR_PROJECT.supabase.co'; // REPLACE
+const SUPABASE_ANON_KEY = 'YOUR_ANON_KEY'; // REPLACE
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 const form = document.getElementById("dycdForm");
-
-form.addEventListener("submit", function(event) {
-
+form.addEventListener("submit", async function(event){
   event.preventDefault();
-
-  // Get registration date
+  const btn = form.querySelector('button[type=submit]');
+  btn.innerText = 'Submitting...'; btn.disabled = true;
 
   const today = new Date();
+  const registrationNumber = "DYCD-" + today.getFullYear() + "-" + Math.floor(100000 + Math.random() * 900000);
 
-  const year = today.getFullYear();
-
-  // Generate a temporary registration number
-
-  const randomNumber = Math.floor(
-    100000 + Math.random() * 900000
-  );
-
-  const registrationNumber =
-    "DYCD-" + year + "-" + randomNumber;
-
-  // Get member information
-
-  const member = {
-
-    name: document.getElementById("fullName").value,
-
+  const data = {
+    full_name: document.getElementById("fullName").value,
     phone: document.getElementById("phone").value,
-
     email: document.getElementById("email").value,
-
     gender: document.getElementById("gender").value,
-
+    age: parseInt(document.getElementById("age").value),
     ward: document.getElementById("ward").value,
-
     lga: document.getElementById("lga").value,
-
-    education: document.getElementById("education").value,
-
-    occupation: document.getElementById("occupation").value,
-
-    date: today.toLocaleDateString()
-
+    state: document.getElementById("state").value,
+    skill: document.getElementById("skill").value,
+    business: document.getElementById("business").value,
+    why_join: document.getElementById("reason").value,
+    reg_number: registrationNumber
   };
 
-  // Display registration slip
+  // Save to Supabase
+  const { error } = await supabaseClient.from('members').insert([data]);
+  
+  if(error){
+    alert('Supabase Error: ' + error.message + '\nCheck your URL, KEY and RLS policy');
+    btn.innerText = 'Submit Registration'; btn.disabled = false;
+    return;
+  }
 
-  document.getElementById("slipNumber").textContent =
-    registrationNumber;
+  // Show Slip
+  document.getElementById("slipNumber").textContent = registrationNumber;
+  document.getElementById("slipName").textContent = data.full_name;
+  document.getElementById("slipPhone").textContent = data.phone;
+  document.getElementById("slipEmail").textContent = data.email || "Not provided";
+  document.getElementById("slipGender").textContent = data.gender + ' / ' + data.age;
+  document.getElementById("slipWard").textContent = data.ward;
+  document.getElementById("slipLga").textContent = data.lga + ' / ' + data.state;
+  document.getElementById("slipSkill").textContent = data.skill + (data.business ? ' - ' + data.business : '');
+  document.getElementById("slipDate").textContent = today.toLocaleDateString();
 
-  document.getElementById("slipName").textContent =
-    member.name;
-
-  document.getElementById("slipPhone").textContent =
-    member.phone;
-
-  document.getElementById("slipEmail").textContent =
-    member.email || "Not provided";
-
-  document.getElementById("slipGender").textContent =
-    member.gender;
-
-  document.getElementById("slipWard").textContent =
-    member.ward;
-
-  document.getElementById("slipLga").textContent =
-    member.lga;
-
-  document.getElementById("slipEducation").textContent =
-    member.education || "Not provided";
-
-  document.getElementById("slipDate").textContent =
-    member.date;
-
-  // Show success message
-
-  document.getElementById("success").style.display =
-    "block";
-
-  // Show registration slip
-
-  document.getElementById("registrationSlip").style.display =
-    "block";
-
-  // Scroll to registration slip
-
-  document.getElementById("registrationSlip").scrollIntoView({
-
-    behavior: "smooth"
-
-  });
-
-});
-
-</script>
-
-</body>
-</html>
-ALTER TABLE public.members ENABLE ROW LEVEL SECURITY;
-CREATE POLICY "Allow member registration"
-ON public.members FOR INSERT TO anon WITH CHECK (true);
+  document.getElementById("success").style.display = "block";
+  document.getElementById("registrationSl
