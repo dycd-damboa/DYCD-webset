@@ -3,217 +3,122 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DYCD | Damboa Youth Capacity Development</title>
+<title>ZEEKAMSHI Luxury Scents | Premium Fragrances</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Segoe UI',Arial,sans-serif;color:#1f2937;background:#f4f8ff;line-height:1.6}
-.header{background:linear-gradient(135deg,#0f4c75,#1b6ca8);color:white;padding:30px 20px;text-align:center}
-.header h1{font-size:36px;letter-spacing:3px}
-.nav{background:#083b5c;padding:12px;text-align:center}
-.nav a{color:white;text-decoration:none;margin:0 12px;font-weight:600}
-.container{max-width:700px;margin:30px auto;padding:0 15px}
-.card{background:white;border-radius:16px;padding:25px;box-shadow:0 8px 30px rgba(15,76,117,0.12);margin-bottom:25px}
-.card h2{color:#0f4c75;margin-bottom:10px;text-align:center}
-.subtitle{text-align:center;color:#6b7280;margin-bottom:25px;font-size:14px}
-.form-group{margin-bottom:18px}
-label{display:block;font-weight:600;margin-bottom:6px;font-size:14px}
-.required{color:#dc2626}
-input,select,textarea{width:100%;padding:13px 15px;border:1.5px solid #d1d5db;border-radius:10px;font-size:15px;font-family:inherit;background:white}
-input:focus,select:focus,textarea:focus{outline:none;border-color:#1b6ca8;box-shadow:0 0 0 3px rgba(27,108,168,0.12)}
-.btn{width:100%;background:#0f4c75;color:white;padding:15px;border:none;border-radius:10px;font-size:16px;font-weight:bold;cursor:pointer;margin-top:10px}
-.btn:hover{background:#1b6ca8}
-.btn-secondary{background:#15803d}
-.success-msg{display:none;background:#dcfce7;color:#166534;padding:15px;border-radius:10px;text-align:center;margin-bottom:20px;font-weight:600}
-#registrationSlip{display:none;background:white;border:2px solid #0f4c75;border-radius:12px;padding:25px;margin-top:25px}
-.slip-header{text-align:center;color:#0f4c75;border-bottom:2px solid #0f4c75;padding-bottom:15px;margin-bottom:20px}
-.slip-row{display:flex;justify-content:space-between;gap:15px;border-bottom:1px solid #ddd;padding:10px 0;font-size:14px}
-.slip-row strong{color:#0f4c75}
-.slip-footer{text-align:center;margin-top:25px;font-size:13px}
-.contact-card{background:linear-gradient(135deg,#0f4c75,#1b6ca8);color:white;border-radius:16px;padding:25px;text-align:center}
-.footer{background:#083b5c;color:white;text-align:center;padding:25px 15px;font-size:13px;margin-top:30px}
-@media print{body{background:white}body *{visibility:hidden}#registrationSlip,#registrationSlip *{visibility:visible}#registrationSlip{display:block!important;position:absolute;left:0;top:0;width:100%;margin:0;border:2px solid black}.no-print{display:none!important}}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
+body{background:#04122e;color:#fff}
+.top{background:#0a1f4a;padding:18px 15px;text-align:center;border-bottom:3px solid #d4af37}
+.top h1{font-size:34px;color:#f5c542;letter-spacing:1px}
+.top h1 span{color:#fff}
+.top .lux{font-family:Georgia,serif;font-style:italic;font-weight:normal;color:#fff;font-size:26px;margin-top:-2px}
+.top p{font-size:11px;letter-spacing:2px;margin-top:6px;color:#ddd}
+.hero{padding:28px 18px;text-align:center;background:linear-gradient(180deg,#0a1f4a,#071530)}
+.hero h2{font-size:28px;line-height:1.2}
+.hero h2 b{color:#f5c542}
+.hero p{margin:12px 0 18px;color:#dbe6ff;font-size:15px}
+.btn{display:inline-block;background:#25D366;color:#fff;padding:14px 22px;border-radius:30px;text-decoration:none;font-weight:bold;font-size:16px}
+.btn2{display:inline-block;background:#d4af37;color:#04122e;padding:13px 22px;border-radius:30px;text-decoration:none;font-weight:bold;margin-left:8px}
+.badge{display:flex;justify-content:space-around;background:#fff;color:#04122e;padding:14px 8px;text-align:center;font-size:11px;font-weight:bold}
+.badge div{width:23%}
+.badge span{font-size:20px;display:block}
+.section{padding:22px 16px}
+.section h3{font-size:22px;text-align:center;margin-bottom:6px}
+.section>p{text-align:center;color:#cbd8ff;font-size:14px;margin-bottom:16px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.card{background:#fff;color:#111;border-radius:16px;overflow:hidden;text-align:center;padding-bottom:12px}
+.card .img{height:105px;display:flex;align-items:center;justify-content:center;font-size:48px;background:linear-gradient(135deg,#0a1f4a,#1a3a7a)}
+.card h4{margin:10px 0 4px;font-size:15px}
+.card p{font-size:12px;color:#555;padding:0 8px;min-height:32px}
+.card a{display:inline-block;margin-top:8px;background:#04122e;color:#f5c542;padding:9px 14px;border-radius:20px;text-decoration:none;font-size:13px;font-weight:bold}
+.order{background:#fff;color:#111;margin:16px;border-radius:18px;padding:20px}
+.order h3{color:#04122e;text-align:center}
+.order label{font-size:13px;font-weight:bold;display:block;margin:12px 0 5px}
+.order input,.order select,.order textarea{width:100%;padding:12px;border:1px solid #ccc;border-radius:10px;font-size:15px}
+.order button{width:100%;background:#25D366;color:#fff;border:0;padding:15px;border-radius:12px;font-size:17px;font-weight:bold;margin-top:16px}
+.about{background:#0a1f4a;padding:22px 16px;text-align:center}
+.about h3{color:#f5c542;margin-bottom:10px}
+.about p{color:#dbe6ff;font-size:14px;line-height:1.6}
+.footer{background:#020a1a;padding:20px;text-align:center;font-size:13px}
+.footer b{color:#f5c542}
+.footer a{color:#fff;text-decoration:none}
 </style>
 </head>
 <body>
-<header class="header"><h1>DYCD</h1><p>Damboa Youth Capacity Development</p><p style="font-size:13px;margin-top:8px">Empowering Youth • Building Future • Serving Damboa</p></header>
-<nav class="nav"><a href="#home">Home</a><a href="#register">Register</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
-<main class="container" id="home">
-<section class="card"><h2>Welcome to DYCD</h2><p class="subtitle">Damboa Youth Capacity Development</p><p>Welcome to the official DYCD membership registration website. Join us to promote education, leadership, youth participation, skills development and community progress in Damboa.</p></section>
 
-<section class="card" id="register"><h2>Member Registration</h2><p class="subtitle">Join us to develop skills, serve our community and grow together.</p>
-<div id="success" class="success-msg">Registration completed successfully!<br>Your registration slip is ready below.</div>
+<div class="top">
+<h1>👑 ZEEKAMSHI</h1>
+<div class="lux">Luxury Scents</div>
+<p>PREMIUM FRAGRANCES • LASTING IMPRESSION</p>
+</div>
 
-<form id="dycdForm">
-<div class="form-group"><label>Full Name <span class="required">*</span></label><input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required></div>
-<div class="form-group"><label>Phone Number <span class="required">*</span></label><input type="tel" id="phone" name="phone" placeholder="07085726695" required></div>
-<div class="form-group"><label>Email Address</label><input type="email" id="email" name="email" placeholder="Enter your email address"></div>
-<div class="form-group"><label>Gender <span class="required">*</span></label><select id="gender" name="gender" required><option value="">-- Select Gender --</option><option>Male</option><option>Female</option></select></div>
-<div class="form-group"><label>Age <span class="required">*</span></label><input type="number" id="age" name="age" placeholder="Enter your age" required></div>
-<div class="form-group"><label>Ward / Location in Damboa <span class="required">*</span></label><select id="ward" name="ward" required><option value="">-- Select Ward --</option><option>Ajigin (A)</option><option>Ajigin (B)</option><option>Azur / Multe / Forfor</option><option>Bego / Yerwa / Ngurna</option><option>Damboa Central</option><option>Gumsuri / Misakurbudu</option><option>Kafa / Mafi</option><option>Mulgwai / Kopchi</option><option>Nguda / Wuyaram</option><option>Wawa / Korede</option></select></div>
-<div class="form-group"><label>Local Government Area</label><input type="text" id="lga" name="lga" value="Damboa" readonly></div>
-<div class="form-group"><label>State</label><input type="text" id="state" name="state" value="Borno State" readonly></div>
+<div class="hero">
+<h2>Your Destination for<br><b>Beautiful Fragrances</b></h2>
+<p>More Than a Scent... It's a Lifestyle.<br>Feel the Luxury in Every Scent.</p>
+<a class="btn" href="https://wa.me/2348099619013?text=Hello%20ZEEKAMSHI,%20I%20want%20to%20order">💬 Order on WhatsApp</a>
+<a class="btn2" href="tel:08099619013">📞 Call Now</a>
+</div>
 
-<!-- FIXED: Only ONE Skill/Business field now -->
-<div class="form-group"><label>Your Skill / Business <span class="required">*</span></label><select id="skill" name="skill" required><option value="">-- Select Category --</option><option>🎓 Student</option><option>🌾 Farmer</option><option>💼 Business/Trader</option><option>🔧 Welding & Fabrication</option><option>🪵 Carpentry</option><option>✂️ Tailoring</option><option>📱 Tech / Phone Repair</option><option>🔧 Mechanic</option><option>🚜 Driver</option><option>Other</option></select></div>
+<div class="badge">
+<div><span>✅</span>100% Original</div>
+<div><span>🚚</span>Fast Delivery</div>
+<div><span>⭐</span>Long Lasting</div>
+<div><span>💎</span>Premium Quality</div>
+</div>
 
-<div class="form-group"><label>Business Name (if any)</label><input type="text" id="business" name="business" placeholder="Your business name"></div>
-<div class="form-group"><label>Why do you want to join DYCD?</label><textarea id="reason" name="reason" rows="4" placeholder="Tell us why you want to join DYCD..."></textarea></div>
-<button type="submit" class="btn">Submit Registration</button>
-</form>
-</section>
+<div class="section">
+<h3>✨ Our Products</h3>
+<p>Tap any product to order on WhatsApp</p>
+<div class="grid">
+<div class="card"><div class="img">🌸</div><h4>Oil Perfumes</h4><p>Rich, long-lasting oil perfumes for men & women</p><a href="https://wa.me/2348099619013?text=Hello,%20I%20want%20Oil%20Perfume">Order Now →</a></div>
+<div class="card"><div class="img">💎</div><h4>Munjul Products</h4><p>Premium Munjul for a sweet, luxurious scent</p><a href="https://wa.me/2348099619013?text=Hello,%20I%20want%20Munjul">Order Now →</a></div>
+<div class="card"><div class="img">🌿</div><h4>Diffusers</h4><p>Make your home & office smell amazing</p><a href="https://wa.me/2348099619013?text=Hello,%20I%20want%20Diffuser">Order Now →</a></div>
+<div class="card"><div class="img">💨</div><h4>Kabbasa Spray</h4><p>Fresh Kabbasa spray for clothes & rooms</p><a href="https://wa.me/2348099619013?text=Hello,%20I%20want%20Kabbasa%20Spray">Order Now →</a></div>
+<div class="card"><div class="img">🔥</div><h4>Humura</h4><p>Traditional Humura - deep & beautiful aroma</p><a href="https://wa.me/2348099619013?text=Hello,%20I%20want%20Humura">Order Now →</a></div>
+<div class="card"><div class="img">🪵</div><h4>Turaren Wuta</h4><p>Authentic Turaren Wuta for special occasions</p><a href="https://wa.me/2348099619013?text=Hello,%20I%20want%20Turaren%20Wuta">Order Now →</a></div>
+</div>
+</div>
 
-<section id="registrationSlip"><div class="slip-header"><h1>DYCD</h1><h3>DAMBOA YOUTH CAPACITY DEVELOPMENT</h3><p>Empowering Youth • Building Future • Serving Damboa</p></div><h2 style="text-align:center;color:#0f4c75;margin:20px 0">MEMBERSHIP REGISTRATION SLIP</h2>
-<div class="slip-row"><strong>Registration Number:</strong><span id="slipNumber"></span></div>
-<div class="slip-row"><strong>Full Name:</strong><span id="slipName"></span></div>
-<div class="slip-row"><strong>Phone Number:</strong><span id="slipPhone"></span></div>
-<div class="slip-row"><strong>Email:</strong><span id="slipEmail"></span></div>
-<div class="slip-row"><strong>Gender / Age:</strong><span id="slipGender"></span></div>
-<div class="slip-row"><strong>Ward / Location:</strong><span id="slipWard"></span></div>
-<div class="slip-row"><strong>LGA / State:</strong><span id="slipLga"></span></div>
-<div class="slip-row"><strong>Skill / Business:</strong><span id="slipSkill"></span></div>
-<div class="slip-row"><strong>Registration Date:</strong><span id="slipDate"></span></div>
-<div class="slip-footer"><p>Thank you for registering with DYCD.</p><p>Together we can build a better future for Damboa youth.</p><br><strong>DYCD MANAGEMENT - 07085726695</strong></div>
-<div style="margin-top:20px" class="no-print"><button type="button" class="btn btn-secondary" onclick="window.print()">🖨️ Print Registration Slip / Save as PDF</button><a href="https://wa.me/2347085726695" style="display:block;text-align:center;margin-top:10px;background:#25D366;color:white;padding:12px;border-radius:10px;text-decoration:none;font-weight:700">💬 WhatsApp: 07085726695</a></div>
-</section>
+<div class="order">
+<h3>🛒 Quick Order Form</h3>
+<label>Your Name</label>
+<input id="name" placeholder="e.g. Fatima">
+<label>What do you want?</label>
+<select id="prod">
+<option>Oil Perfumes</option>
+<option>Munjul Products</option>
+<option>Diffusers</option>
+<option>Kabbasa Spray</option>
+<option>Humura</option>
+<option>Turaren Wuta</option>
+</select>
+<label>Quantity</label>
+<input id="qty" type="number" value="1">
+<label>Your Location / Address</label>
+<textarea id="addr" rows="2" placeholder="e.g. Abuja"></textarea>
+<button onclick="order()">Send Order to WhatsApp ✅</button>
+</div>
 
-<section class="card" id="about"><h2>About DYCD</h2><p>Damboa Youth Capacity Development (DYCD) is a youth-focused organization committed to promoting education, leadership, skills development, participation and community development.</p></section>
-<section class="contact-card" id="contact"><h3>Contact DYCD</h3><p>For membership enquiries contact DYCD management.</p><p style="margin-top:10px">Damboa, Borno State, Nigeria - 07085726695</p></section>
-</main>
-<footer class="footer"><p>© 2026 DYCD - All Rights Reserved</p><p>Damboa Youth Capacity Development</p></footer>
+<div class="about">
+<h3>About ZEEKAMSHI</h3>
+<p>ZEEKAMSHI Luxury Scents is your trusted destination for premium fragrances in Nigeria. We sell only original products that last long and leave a lasting impression. Whether for yourself, your home, or as a gift - we have the perfect scent for you.</p>
+<p style="margin-top:12px">📍 <b>Abuja, Nigeria</b><br>📞 <b>08099619013</b></p>
+</div>
 
-<!-- SUPABASE + FIXED JAVASCRIPT -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<div class="footer">
+<b>👑 ZEEKAMSHI LUXURY SCENTS</b><br><br>
+<a href="https://wa.me/2348099619013">WhatsApp Us</a> | <a href="tel:08099619013">Call Us</a><br><br>
+© 2026 Zeekamshi Luxury Scents. All Rights Reserved.
+</div>
+
 <script>
-const SUPABASE_URL = 'https://YOUR_PROJECT.supabase.co'; // REPLACE
-const SUPABASE_ANON_KEY = 'YOUR_ANON_KEY'; // REPLACE
-const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-const form = document.getElementById("dycdForm");
-form.addEventListener("submit", async function(event){
-  event.preventDefault();
-  const btn = form.querySelector('button[type=submit]');
-  btn.innerText = 'Submitting...'; btn.disabled = true;
-
-  const today = new Date();
-  const registrationNumber = "DYCD-" + today.getFullYear() + "-" + Math.floor(100000 + Math.random() * 900000);
-
-  const data = {
-    full_name: document.getElementById("fullName").value,
-    phone: document.getElementById("phone").value,
-    email: document.getElementById("email").value,
-    gender: document.getElementById("gender").value,
-    age: parseInt(document.getElementById("age").value),
-    ward: document.getElementById("ward").value,
-    lga: document.getElementById("lga").value,
-    state: document.getElementById("state").value,
-    skill: document.getElementById("skill").value,
-    business: document.getElementById("business").value,
-    why_join: document.getElementById("reason").value,
-    reg_number: registrationNumber
-  };
-
-  // Save to Supabase
-  const { error } = await supabaseClient.from('members').insert([data]);
-  
-  if(error){
-    alert('Supabase Error: ' + error.message + '\nCheck your URL, KEY and RLS policy');
-    btn.innerText = 'Submit Registration'; btn.disabled = false;
-    return;
-  }
-
-  // Show Slip
-  document.getElementById("slipNumber").textContent = registrationNumber;
-  document.getElementById("slipName").textContent = data.full_name;
-  document.getElementById("slipPhone").textContent = data.phone;
-  document.getElementById("slipEmail").textContent = data.email || "Not provided";
-  document.getElementById("slipGender").textContent = data.gender + ' / ' + data.age;
-  document.getElementById("slipWard").textContent = data.ward;
-  document.getElementById("slipLga").textContent = data.lga + ' / ' + data.state;
-  document.getElementById("slipSkill").textContent = data.skill + (data.business ? ' - ' + data.business : '');
-  document.getElementById("slipDate").textContent = today.toLocaleDateString();
-
-  document.getElementById("success").style.display = "block";
-  document.getElementById("registrationSl
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
-// ===== REPLACE WITH YOUR REAL VALUES =====
-const SUPABASE_URL = 'https://YOUR_PROJECT.supabase.co';
-const SUPABASE_ANON_KEY = 'YOUR_ANON_KEY_HERE';
-const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-const form = document.getElementById("dycdForm");
-form.addEventListener("submit", async function(e){
-  e.preventDefault();
-  const btn = form.querySelector('button[type=submit]');
-  btn.innerText = 'Submitting...';
-  btn.disabled = true;
-
-  const today = new Date();
-  const regNum = "DYCD-" + today.getFullYear() + "-" + Math.floor(100000 + Math.random()*900000);
-
-  const memberData = {
-    full_name: document.getElementById("fullName").value.trim(),
-    phone: document.getElementById("phone").value.trim(),
-    email: document.getElementById("email").value.trim(),
-    gender: document.getElementById("gender").value,
-    age: parseInt(document.getElementById("age").value),
-    ward: document.getElementById("ward").value,
-    lga: document.getElementById("lga").value,
-    state: document.getElementById("state").value,
-    skill: document.getElementById("skill").value,
-    business: document.getElementById("business").value,
-    why_join: document.getElementById("reason").value,
-    reg_number: regNum,
-    created_at: new Date().toISOString()
-  };
-
-  // 1. Save to Supabase members table
-  const { error } = await supabaseClient.from('members').insert([memberData]);
-
-  if(error){
-    alert("❌ Failed: " + error.message + "\n\nCheck: 1) Supabase URL/Key 2) RLS Policy you created");
-    btn.innerText = 'Submit Registration';
-    btn.disabled = false;
-    return;
-  }
-
-  // 2. Show Registration Successfully
-  const successDiv = document.getElementById("success");
-  successDiv.innerHTML = `✅ <strong>Registration Successful!</strong><br>Welcome ${memberData.full_name} - Your Number is ${regNum}`;
-  successDiv.style.display = "block";
-
-  // 3. Fill Registration Slip with Data
-  document.getElementById("slipNumber").textContent = regNum;
-  document.getElementById("slipName").textContent = memberData.full_name;
-  document.getElementById("slipPhone").textContent = memberData.phone;
-  document.getElementById("slipEmail").textContent = memberData.email || "Not provided";
-  document.getElementById("slipGender").textContent = memberData.gender + " / " + memberData.age + " years";
-  document.getElementById("slipWard").textContent = memberData.ward;
-  document.getElementById("slipLga").textContent = memberData.lga + " / " + memberData.state;
-  document.getElementById("slipSkill").textContent = memberData.skill + (memberData.business ? " - " + memberData.business : "");
-  document.getElementById("slipDate").textContent = today.toLocaleString();
-
-  // 4. Show Slip and Scroll
-  const slip = document.getElementById("registrationSlip");
-  slip.style.display = "block";
-  slip.scrollIntoView({behavior: "smooth"});
-
-  // 5. WhatsApp Alert to 07085726695
-  const whatsappMsg = `*NEW DYCD REGISTRATION*%0A%0AReg No: ${regNum}%0AName: ${memberData.full_name}%0APhone: ${memberData.phone}%0AGender: ${memberData.gender}%0AAge: ${memberData.age}%0AWard: ${memberData.ward}%0ALGA: ${memberData.lga}%0ASkill: ${memberData.skill}%0ABusiness: ${memberData.business}%0AReason: ${memberData.why_join}`;
-  window.open(`https://wa.me/2347085726695?text=${whatsappMsg}`, '_blank');
-
-  // 6. Auto Print Dialog (optional - user can click print button too)
-  setTimeout(() => {
-    if(confirm("Registration Successful! Do you want to Print your slip now?")){
-      window.print();
-    }
-  }, 800);
-
-  // Reset form
-  form.reset();
-  document.getElementById("lga").value = "Damboa";
-  document.getElementById("state").value = "Borno State";
-  btn.innerText = 'Submit Registration';
-  btn.disabled = false;
-});
+function order(){
+let n=document.getElementById('name').value||'Customer';
+let p=document.getElementById('prod').value;
+let q=document.getElementById('qty').value;
+let a=document.getElementById('addr').value||'';
+let msg="Hello ZEEKAMSHI!%0A%0AMy Name: "+encodeURIComponent(n)+"%0AProduct: "+encodeURIComponent(p)+"%0AQuantity: "+q+"%0ALocation: "+encodeURIComponent(a)+"%0A%0APlease confirm price & delivery. Thank you!";
+window.open("https://wa.me/2348099619013?text="+msg,"_blank");
+}
 </script>
+</body>
+</html>
